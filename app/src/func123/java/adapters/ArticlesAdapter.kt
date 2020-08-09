@@ -1,19 +1,16 @@
 package adapters
 
-import Constants
 import android.content.Context
 import android.content.Intent
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.article_item.view.*
+import kotlinx.android.synthetic.func123.article_item.view.*
 import kotlinx.android.synthetic.main.list_item.view.tvArticleTitle
 import models.Article
 import pt.mferreira.wtest.DetailsActivity
@@ -29,7 +26,7 @@ class ArticlesAdapter (private val context: Context, private val articles: List<
             itemView.setOnClickListener {
                 println("ayy lmao $currentArticle")
                 val intent = Intent(context, DetailsActivity::class.java)
-                intent.putExtra(Constants.DETAILS, currentArticle)
+                intent.putExtra("details", currentArticle)
                 context.startActivity(intent)
             }
         }

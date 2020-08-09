@@ -316,6 +316,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     // TODO: Refactor MainActivity into a fragment and use string resources instead of hardcoding them.
+    // TODO: Add documentation to methods and functions.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -730,7 +731,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.navArticle -> {
                 navigationView.setCheckedItem(R.id.navArticle)
                 val intent = Intent(applicationContext, ArticlesActivity::class.java)
-                //putExtra
                 startActivity(intent)
             }
         }
