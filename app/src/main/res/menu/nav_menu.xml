@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Features">
+        <menu>
+            <item
+                android:icon="@drawable/ic_mail"
+                android:id="@+id/navZipCode"
+                android:title="Zip Codes" />
+            <item
+                android:icon="@drawable/ic_dashboard"
+                android:id="@+id/navArticle"
+                android:title="Articles" />
+        </menu>
+    </item>
+
+</menu>
