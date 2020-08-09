@@ -54,7 +54,7 @@
             <TextView
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="12dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_toLeftOf="@id/articleArrow"
                 android:text="January 1st, 2020"
                 android:id="@+id/tvArticleDate"
