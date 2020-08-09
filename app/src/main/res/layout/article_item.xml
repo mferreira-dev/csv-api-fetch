@@ -19,15 +19,20 @@
         android:padding="4dp">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/articleCardView"
             card_view:cardCornerRadius="4dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_width="match_parent">
 
             <ImageView
                 android:id="@+id/tvArticleImage"
-                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"/>
+                android:layout_height="match_parent"/>
+
+            <ProgressBar
+                android:id="@+id/articleProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
         </androidx.cardview.widget.CardView>
 

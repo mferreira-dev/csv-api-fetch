@@ -3,18 +3,22 @@ package adapters
 import Constants
 import android.content.Context
 import android.content.Intent
+import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.article_item.view.*
 import kotlinx.android.synthetic.main.list_item.view.tvArticleTitle
 import models.Article
 import pt.mferreira.wtest.DetailsActivity
 import pt.mferreira.wtest.R
+import java.lang.Exception
 
 class ArticlesAdapter (private val context: Context, private val articles: List<Article>) : RecyclerView.Adapter<ArticlesAdapter.MyViewHolder>() {
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -32,11 +36,24 @@ class ArticlesAdapter (private val context: Context, private val articles: List<
 
         fun setData (article: Article?, position: Int) {
             article?.let {
-                if (article.hero != null) Picasso.get().load(article.hero).into(itemView.tvArticleImage)
+                if (article.hero != null) {
+                    itemView.tvArticleImage.setScaleType(ImageView.ScaleType.CENTER_CROP)
+
+                    Picasso.get().load(article.hero).into(itemView.tvArticleImage, object : Callback {
+                        override fun onSuccess() {
+                            itemView.articleProgressBar.visibility = View.GONE
+                        }
+
+                        override fun onError(e: Exception?) {
+
+                        }
+                    })
+                }
                 else {
-                    val params: FrameLayout.LayoutParams = itemView.tvArticleImage.layoutParams as FrameLayout.LayoutParams
+                    val params: LinearLayout.LayoutParams = itemView.articleCardView.layoutParams as LinearLayout.LayoutParams
                     params.height = context.resources.getDimensionPixelSize(R.dimen.item_view_height);
-                    itemView.tvArticleImage.layoutParams = params
+                    itemView.articleCardView.layoutParams = params
+                    itemView.articleProgressBar.visibility = View.GONE
                 }
 
                 itemView.tvArticleTitle.text = article.title
